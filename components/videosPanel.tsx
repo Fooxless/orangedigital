@@ -48,11 +48,11 @@ export default function Videos() {
                     console.log("video", video);
                     const url = `/${video}`;
                     return (
-                        <Box key={video} sx={{ position: 'relative', margin: "5px", minWidth: "500px" }}>
+                        <Box key={video} sx={{ position: 'relative', margin: "5px" }}>
 
-                            <StyledThumb sx={{ position: 'absolute', marginBottom: "-110px", marginLeft: "210px", bottom: "50%", left: "50%", color: "#DAD9D6", fontSize: 25 }} />
+                            <StyledThumb sx={{ position: 'absolute', marginBottom: "-90px", marginLeft: "170px", bottom: "50%", left: "50%", color: "#DAD9D6", fontSize: 25 }} />
                             <StyledCircle sx={{ position: 'absolute', marginBottom: "-30px", marginLeft: "-40px", bottom: "50%", left: "50%", color: "#DAD9D6", fontSize: 100, }} />
-                            <Image src={url} alt="me" width="500" height="250" />
+                            <Image src={url} alt="me" width="400" height="200" />
 
                         </Box >
                     )

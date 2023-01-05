@@ -36,9 +36,9 @@ export default function Photos() {
                     console.log("video", video);
                     const url = `/${video}`;
                     return (
-                        <StyledBox key={video} sx={{ position: 'relative', margin: "5px", minWidth: "500px" }}>
+                        <StyledBox key={video} sx={{ position: 'relative', margin: "5px", width: "100%" }}>
 
-                            <Image src={url} alt="me" width="500" height="250" />
+                            <Image src={url} alt="me" width="400" height="200" />
 
                         </StyledBox >
                     )
