@@ -1,7 +1,9 @@
 .main {
     background-color: white;
+    position: static;
+
 }
 
 .description {
-    color: black;
+    color: red;
 }

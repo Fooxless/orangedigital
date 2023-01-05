@@ -13,8 +13,7 @@ export default function Gallery() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.main} >
-
-        <TabPanel />
+        Details
         <div>
 
         </div>

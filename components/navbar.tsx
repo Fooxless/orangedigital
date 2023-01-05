@@ -10,8 +10,10 @@ import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
 import MoreVertOutlinedIcon from '@mui/icons-material/MoreVertOutlined';
+import CssBaseline from '@mui/material/CssBaseline';
+import Link from 'next/link'
 
-const pages = ['Gallery', 'Details Page'];
+const pages = [{ name: 'Gallery', url: '/' }, { name: 'Details Page', url: '/details' }];
 
 function Navbar() {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
@@ -26,9 +28,10 @@ function Navbar() {
 
   return (
 
-    <AppBar sx={{
+    <AppBar position='static' sx={{
       background: 'linear-gradient(90deg, rgba(128,99,193,1) 0%, rgba(88,74,161,1) 100%)',
     }}>
+      <CssBaseline />
 
       <Container maxWidth="xl">
         <Toolbar disableGutters>
@@ -62,8 +65,10 @@ function Navbar() {
               }}
             >
               {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
+                <MenuItem key={page.name} onClick={handleCloseNavMenu}>
+                  <Link href={page.url} key={page.name} style={{ textDecoration: 'none', color: 'black' }} >
+                    <Typography textAlign="center">{page.name}</Typography>
+                  </Link>
                 </MenuItem>
               ))}
             </Menu>
@@ -72,15 +77,14 @@ function Navbar() {
           <Typography
             variant="h5"
             noWrap
-            component="a"
-            href=""
+            {...{ style: { textTransform: "uppercase" } }}
             sx={{
               mr: 2,
               display: { xs: 'flex', md: 'none' },
               flexGrow: 1,
               fontFamily: 'monospace',
-              fontWeight: 700,
-              letterSpacing: '.3rem',
+              fontWeight: 550,
+              letterSpacing: '.1rem',
               color: 'inherit',
               textDecoration: 'none',
             }}
@@ -89,13 +93,13 @@ function Navbar() {
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
-              <Button
-                key={page}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'white', display: 'block' }}
-              >
-                {page}
-              </Button>
+              <Link href={page.url} key={page.name} style={{ textDecoration: 'none' }} >
+                <Button
+                  sx={{ my: 2, color: 'white', display: 'block' }}
+                >
+                  {page.name}
+                </Button>
+              </Link>
             ))}
           </Box>
 
@@ -105,11 +109,10 @@ function Navbar() {
               <MoreVertOutlinedIcon sx={{ color: 'white', }} />
             </IconButton>
 
-
           </Box>
         </Toolbar>
       </Container>
-    </AppBar>
+    </AppBar >
   );
 }
 export default Navbar;
