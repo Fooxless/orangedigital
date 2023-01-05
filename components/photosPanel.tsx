@@ -6,20 +6,20 @@ import Box from '@mui/material/Box';
 
 export default function Photos() {
 
-    const [videos, setVideos] = useState<any>(null)
-    console.log("videos", videos)
+    const [information, setInformation] = useState<any>(null)
+    console.log("videos", information)
     useEffect(() => {
-        fetch('/api/videos', { method: 'GET' })
+        fetch('/api/information', { method: 'GET' })
             .then((res) => res.json())
             .then((data) => {
-                setVideos(data)
+                setInformation(data)
             })
     }, [])
 
     return (
         <div >
             <Box sx={{ width: '100%', display: 'flex', textAlign: 'center', marginTop: "20px", padding: "20px", flexDirection: "column", }}>
-                {videos && (videos?.map((video: any) => {
+                {information && (information.photos?.map((video: any) => {
                     console.log("video", video);
                     const url = `/${video}`;
                     return (

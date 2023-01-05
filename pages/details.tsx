@@ -1,9 +1,9 @@
 import Head from 'next/head'
 import styles from '../styles/gallery.module.css'
-import TabPanel from "../components/tabpanel";
+import ProfileCards from "../components/profileCards";
 import { useState } from 'react';
 
-export default function Gallery() {
+export default function Details() {
   return (
     <div className='page-container'>
       <Head>
@@ -13,7 +13,8 @@ export default function Gallery() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.main} >
-        Details
+        <ProfileCards />
+
         <div>
 
         </div>

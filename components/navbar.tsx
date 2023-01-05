@@ -1,4 +1,4 @@
-import * as React from 'react';
+import { useState, useEffect } from 'react'
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -13,10 +13,12 @@ import MoreVertOutlinedIcon from '@mui/icons-material/MoreVertOutlined';
 import CssBaseline from '@mui/material/CssBaseline';
 import Link from 'next/link'
 
+
 const pages = [{ name: 'Gallery', url: '/' }, { name: 'Details Page', url: '/details' }];
 
 function Navbar() {
-  const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
+  const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
+  const [currentPage, setCurrentPage] = useState<any>('');
 
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
@@ -25,6 +27,13 @@ function Navbar() {
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
   };
+
+  const getWindow = async () => {
+    if (window?.location?.pathname === "/details") { setCurrentPage('Details Page') }
+    else { setCurrentPage('gallery'); }
+  }
+
+  useEffect(() => { getWindow() });
 
   return (
 
@@ -45,6 +54,7 @@ function Navbar() {
               color="inherit"
             >
               <MenuIcon />
+
             </IconButton>
             <Menu
               id="menu-appbar"
@@ -71,6 +81,7 @@ function Navbar() {
                   </Link>
                 </MenuItem>
               ))}
+
             </Menu>
           </Box>
 
@@ -80,7 +91,7 @@ function Navbar() {
             {...{ style: { textTransform: "uppercase" } }}
             sx={{
               mr: 2,
-              display: { xs: 'flex', md: 'none' },
+              display: { xs: 'flex', md: 'flex' },
               flexGrow: 1,
               fontFamily: 'monospace',
               fontWeight: 550,
@@ -89,7 +100,7 @@ function Navbar() {
               textDecoration: 'none',
             }}
           >
-            Gallery
+            {currentPage}
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
