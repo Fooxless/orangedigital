@@ -3,6 +3,9 @@ import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
+import VideosPanel from "./videosPanel";
+import PhotosPanel from "./photosPanel";
+
 
 export default function Tabpanel() {
     const [value, setValue] = useState('one');
@@ -34,10 +37,10 @@ export default function Tabpanel() {
             </Box>
             {value === 'one' ? (
                 <div>
-                    There will be a video component here
+                    <VideosPanel />
                 </div>
             ) : (<div>
-                There will be a photo component here
+                <PhotosPanel />
             </div>
             )}
 
