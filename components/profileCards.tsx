@@ -6,6 +6,7 @@ import Grid from '@mui/material/Grid';
 import AccessTimeFilledRoundedIcon from '@mui/icons-material/AccessTimeFilledRounded';
 import FavoriteRoundedIcon from '@mui/icons-material/FavoriteRounded';
 import ChatBubbleRoundedIcon from '@mui/icons-material/ChatBubbleRounded';
+import { styled } from '@mui/material/styles';
 
 export default function ProfileCards() {
 
@@ -19,6 +20,22 @@ export default function ProfileCards() {
             })
     }, [])
 
+
+
+
+    const StyledBox = styled(Box)`
+        ${({ theme }) => `
+        cursor: pointer;
+        transition: ${theme.transitions.create(['background-color', 'transform'], {
+        duration: theme.transitions.duration.standard,
+    })};
+        &:hover {
+          transform: scale(1.03);
+        }
+        `}
+      `;
+
+
     return (
         <div >
             <Box sx={{ width: '100%', display: 'flex', textAlign: 'center', marginTop: "20px", padding: "20px", flexDirection: "column", }}>
@@ -26,7 +43,7 @@ export default function ProfileCards() {
                     console.log("user", user);
                     const url = `/${user.picture}`;
                     return (
-                        <Box key={user.picture} sx={{ display: 'flex', margin: "5px", boxShadow: 3 }}>
+                        <StyledBox key={user.picture} sx={{ display: 'flex', margin: "5px", boxShadow: 3, textAlign: 'center' }}>
                             <Box sx={{ display: 'flex', margin: "10px" }}>
                                 <Image src={url} alt="me" width="100" height="100" />
                             </Box >
@@ -35,8 +52,8 @@ export default function ProfileCards() {
                                 <Typography variant="body1"> {user.description} </Typography>
                                 <Box sx={{ display: 'flex', textAlign: 'left', marginTop: 1 }}>
 
-                                    <Grid item container spacing={5}>
-                                        <Grid item sx={{ display: 'flex', }} >
+                                    <Grid item container spacing={1}>
+                                        <Grid item sx={{ display: 'flex', marginRight: 1 }} >
                                             <AccessTimeFilledRoundedIcon sx={{ color: "#A1A1A2", fontSize: 18, marginRight: 0.5 }} />
                                             <Typography variant="body2"> {user.time}</Typography>
                                         </Grid>
@@ -51,7 +68,7 @@ export default function ProfileCards() {
                                     </Grid>
                                 </Box >
                             </Box >
-                        </Box >
+                        </StyledBox >
                     )
                 }))}
             </Box >

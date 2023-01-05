@@ -16,7 +16,7 @@ export default function Tabpanel() {
 
     return (
         <div>
-            <Box sx={{ width: '100%', boxShadow: 2 }}>
+            <Box sx={{ width: '100%', boxShadow: 3 }}>
                 <Tabs
                     variant="fullWidth"
                     value={value}

@@ -15,7 +15,7 @@ export default async function information(req: NextApiRequest, res: NextApiRespo
       photos: ["photo-1530584379127-80bf85c555ed.avif", "photo-1603314585442-ee3b3c16fbcf.avif", "photo-1611416517780-eff3a13b0359.avif"],
       detailsPage: {
         image: "detail-page-bg.png", title: "Lost on the Road to the mountains", author: "Alan Tiger",
-        location: "Paris, France", release: "March 31st, 2016",
+        location: "Paris, France", release: "March 31st, 2016", likes: "4.5k", comments: "1.1k",
       },
     };
 
